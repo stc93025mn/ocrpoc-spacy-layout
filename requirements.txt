@@ -115,7 +115,7 @@ wrapt==1.17.3
 xlsxwriter==3.2.9
 
 # Development dependencies
-pytest==8.3.0
+pytest==8.4.2
 pytest-cov==5.0.0
 black==24.8.0
 flake8==7.3.0
