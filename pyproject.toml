@@ -27,7 +27,7 @@ dependencies = [
     "docling==2.57.0",
     "docling-core==2.48.4",
     "docling-ibm-models==3.9.1",
-    "docling-parse==2.45.0",
+    "docling-parse==4.5.0",
     "et_xmlfile==2.0.0",
     "filelock==3.20.0",
     "filetype==1.2.0",
