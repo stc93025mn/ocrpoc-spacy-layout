@@ -1,6 +1,27 @@
 # Spacy-Layout PDF to AI-Structured Data POC
 
+[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![pytest](https://github.com/stc93025mn/ocrpoc-spacy-layout/actions/workflows/ci.yml/badge.svg)](https://github.com/stc93025mn/ocrpoc-spacy-layout/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout/branch/main/graph/badge.svg)](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 A proof of concept demonstrating the use of the `spacy-layout` library to convert PDFs into AI-ready structured data. This tool leverages spaCy's layout parsing capabilities to extract text, layout information, tables, and other structured elements from PDF documents.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Validation](#validation)
+- [Architecture](#architecture)
+- [Dependencies](#dependencies)
+- [Security Considerations](#security-considerations)
+- [Deployment](#deployment)
+- [Future Enhancements](#future-enhancements)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Features
 
@@ -55,7 +76,7 @@ This will:
 
 1. Download sample PDFs with complex layouts
 2. Process them using spacy-layout
-3. Save results to `samples/processed_results.json`
+3. Save results to `data/processed_results.json`
 
 ### Programmatic Usage
 
@@ -167,7 +188,7 @@ Key dependencies (see requirements.txt):
 ## Security Considerations
 
 - PDFs are processed locally; no data is sent to external services
-- Downloaded PDFs are cached in the `samples/pdfs/` directory
+- Downloaded PDFs are cached in the `data/pdfs/` directory
 - No sensitive data handling in this POC
 
 ## Deployment

@@ -139,5 +139,5 @@ dmypy.json
 Thumbs.db
 
 # Project specific
-samples/pdfs/
-samples/processed_results.json
+data/pdfs/
+data/processed_results.json

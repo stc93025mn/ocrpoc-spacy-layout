@@ -12,8 +12,8 @@ class PDFProcessor:
         self.layout_processor = spaCyLayout(self.nlp)
 
     def download_pdf(self, url: str, filename: str) -> str:
-        """Download a PDF from URL to samples/pdfs/ directory."""
-        pdf_dir = "samples/pdfs"
+        """Download a PDF from URL to data/pdfs/ directory."""
+        pdf_dir = "data/pdfs"
         os.makedirs(pdf_dir, exist_ok=True)
         filepath = os.path.join(pdf_dir, filename)
         
@@ -108,8 +108,8 @@ def main():
             print(f"Error processing {filename}: {e}")
     
     # Save results
-    output_file = "samples/processed_results.json"
-    os.makedirs("samples", exist_ok=True)
+    output_file = "data/processed_results.json"
+    os.makedirs("data", exist_ok=True)
     processor.save_results(results, output_file)
     print(f"Results saved to {output_file}")
 
