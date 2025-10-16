@@ -8,6 +8,12 @@ updates:
     commit-message:
       prefix: "deps"
       include: "scope"
+    groups:
+      security-updates:
+        applies-to: security-updates
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: "github-actions"
     directory: "/"
