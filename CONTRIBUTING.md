@@ -130,20 +130,38 @@ We use automated tools to maintain code quality:
 
 ## Pull Request Process
 
-1. **Create a PR**: Use a clear, descriptive title
-2. **Description**: Explain what changes were made and why
+1. **Create a PR**: Use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) and follow conventional commit format
+2. **Description**: Fill out all sections of the PR template completely
 3. **Labels**: Add appropriate labels (enhancement, bug, documentation, etc.)
 4. **Review**: Request review from maintainers
-5. **CI Checks**: Ensure all CI checks pass
+5. **CI Checks**: Ensure all CI checks pass (tests, coverage, security scans)
 6. **Merge**: Squash and merge after approval
+
+### PR Template Usage
+
+This project uses a comprehensive pull request template located at `.github/PULL_REQUEST_TEMPLATE.md`. The template includes:
+
+- **Change categorization** (bug fix, feature, breaking change, etc.)
+- **Testing requirements** (test results, coverage, CI status)
+- **Code quality checklists** (linting, formatting, security)
+- **Documentation updates** (README, docstrings, comments)
+- **Breaking changes** (if applicable)
+- **Related issues** (GitHub issue links)
+
+**Please fill out the entire template** - this ensures consistent, high-quality contributions and helps reviewers understand your changes.
 
 ### PR Requirements
 
-- [ ] Tests pass locally
-- [ ] Code follows style guidelines
-- [ ] Documentation updated
-- [ ] No security vulnerabilities
-- [ ] Backward compatibility maintained (if applicable)
+- [ ] All PR template sections completed
+- [ ] Tests pass locally and in CI
+- [ ] Code follows PEP 8 and project style guidelines
+- [ ] Black formatting applied
+- [ ] Flake8 linting passes
+- [ ] Bandit security scan passes
+- [ ] Documentation updated for any new features
+- [ ] Code coverage maintained (≥80%)
+- [ ] No breaking changes without migration documentation
+- [ ] Self-reviewed code changes
 
 ## AI Contribution Guidelines
 

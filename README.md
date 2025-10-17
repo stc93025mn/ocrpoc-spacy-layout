@@ -281,11 +281,28 @@ Key dependencies (see requirements.txt):
 
 ## Contributing
 
-This is a proof of concept. For contributions:
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for detailed information on:
 
-1. Add tests for new functionality
-2. Update documentation
-3. Follow Python best practices
+- Development setup and workflow
+- Code standards and best practices
+- Testing requirements
+- Pull request process
+
+### Quick Start for Contributors
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Make your changes following our [contributing guidelines](CONTRIBUTING.md)
+4. Run tests: `pytest --cov --cov-branch --cov-report=xml --junitxml=junit.xml -o junit_family=legacy`
+5. Submit a pull request using our [PR template](.github/PULL_REQUEST_TEMPLATE.md)
+
+### Development Requirements
+
+- Python 3.10+
+- All tests pass
+- Code coverage ≥80%
+- No linting errors
+- Documentation updated
 
 ## License
 
