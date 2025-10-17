@@ -156,11 +156,30 @@ The POC has been tested with:
 - Multi-page documents
 - Various fonts and layouts
 
-Run tests:
+### Running Tests
+
+Run tests with coverage reporting:
 
 ```bash
-python -m unittest tests.test_pdf_processor
+# Run tests with coverage
+pytest --cov --cov-branch --cov-report=xml
+
+# Run tests (using configuration from pyproject.toml)
+pytest
+
+# Generate HTML coverage report
+pytest --cov-report=html
 ```
+
+### Code Coverage
+
+This project uses [Codecov](https://codecov.io) for code coverage reporting. Coverage reports are automatically generated and uploaded to Codecov during CI/CD.
+
+- **Coverage Requirement**: 80% minimum
+- **Branch Coverage**: Enabled
+- **Reports**: HTML, XML, and terminal output
+
+[![codecov](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout/branch/main/graph/badge.svg)](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout)
 
 ## Architecture
 
