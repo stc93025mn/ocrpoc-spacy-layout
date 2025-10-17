@@ -7,6 +7,8 @@
 
 A proof of concept demonstrating the use of the `spacy-layout` library to convert PDFs into AI-ready structured data. This tool leverages spaCy's layout parsing capabilities to extract text, layout information, tables, and other structured elements from PDF documents.
 
+Note from the maintainer: I've been trying to locate the best way to OCR and process out my large collection of PDFs that I've scanned and amassed over the years.  There are many great tools on the market, and there's always a learning curve to getting them stood up and deployed.  I hope this repository helps you to understand the tools as much as it's helped me!
+
 ## Table of Contents
 
 - [Features](#features)
