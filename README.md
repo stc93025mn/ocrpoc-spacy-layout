@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![pytest](https://github.com/stc93025mn/ocrpoc-spacy-layout/actions/workflows/ci.yml/badge.svg)](https://github.com/stc93025mn/ocrpoc-spacy-layout/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout/branch/main/graph/badge.svg)](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout)
+[![codecov](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout/graph/badge.svg?token=DATD5TUXXS)](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 A proof of concept demonstrating the use of the `spacy-layout` library to convert PDFs into AI-ready structured data. This tool leverages spaCy's layout parsing capabilities to extract text, layout information, tables, and other structured elements from PDF documents.
