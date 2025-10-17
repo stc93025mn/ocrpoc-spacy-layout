@@ -144,8 +144,10 @@ addopts = [
     "--strict-markers",
     "--strict-config",
     "--cov=src",
+    "--cov-branch",
     "--cov-report=term-missing",
     "--cov-report=html:htmlcov",
+    "--cov-report=xml",
     "--cov-fail-under=80"
 ]
 
