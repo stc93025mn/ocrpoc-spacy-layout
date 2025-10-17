@@ -55,7 +55,6 @@ dependencies = [
     "murmurhash>=1.0.0",
     "networkx>=3.2.0",
     "numpy>=1.26.0",
-    "ocrmac>=1.0.0",
     "omegaconf>=2.3.0",
     "opencv-python>=4.8.0",
     "opencv-python-headless>=4.8.0",
