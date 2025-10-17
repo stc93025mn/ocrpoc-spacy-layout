@@ -14,13 +14,17 @@ If you discover a security vulnerability in this project, please report it respo
 
 ### How to Report
 
-1. **Do not** create a public GitHub issue for the vulnerability
-2. Email security concerns to: [security@yourproject.com](mailto:security@yourproject.com)
-3. Include detailed information about:
-   - The vulnerability description
+This repository has **Private Vulnerability Reporting** enabled. To report a security vulnerability:
+
+1. Go to the **Security** tab in this repository
+2. Click **Report a vulnerability**
+3. Fill out the vulnerability report form with detailed information:
+   - Vulnerability description
    - Steps to reproduce
    - Potential impact
    - Any suggested fixes
+
+Alternatively, you can report vulnerabilities directly through [GitHub Security Advisories](https://github.com/stc93025mn/ocrpoc-spacy-layout/security/advisories).
 
 ### What to Expect
 
@@ -28,6 +32,15 @@ If you discover a security vulnerability in this project, please report it respo
 - **Investigation**: We'll investigate and provide regular updates
 - **Resolution**: We'll work on a fix and coordinate disclosure
 - **Credit**: We'll credit you (if desired) when the issue is resolved
+
+### Why Private Reporting?
+
+Private vulnerability reporting allows you to:
+
+- Report vulnerabilities without exposing them publicly
+- Work with maintainers privately during investigation
+- Receive credit when the issue is resolved
+- Help maintain security without alerting potential attackers
 
 ## Security Considerations
 

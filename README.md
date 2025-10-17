@@ -230,6 +230,14 @@ This project implements comprehensive continuous integration and quality assuran
 - **Test Results**: JUnit XML output for CI/CD integration
 - **Security Scanning**: Automated vulnerability detection
 
+### CodeQL Security Analysis
+
+- **Automated Vulnerability Scanning**: GitHub CodeQL performs semantic code analysis
+- **Scheduled Analysis**: Weekly security scans on the main branch
+- **Custom Configuration**: Excludes test files and focuses on production code
+- **Language Support**: Python-specific security queries and vulnerability detection
+- **Security Alerts**: Automatic alerts for discovered vulnerabilities
+
 ## Architecture
 
 ```text
