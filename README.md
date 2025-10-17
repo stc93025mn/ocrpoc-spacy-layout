@@ -55,6 +55,13 @@ A proof of concept demonstrating the use of the `spacy-layout` library to conver
    pip install -r requirements.txt
    ```
 
+   **Development dependencies** (for testing and code quality):
+   - `pytest` - Test framework with coverage reporting
+   - `pytest-cov` - Coverage plugin for pytest
+   - `black` - Code formatting
+   - `flake8` - Linting and style checking
+   - `bandit` - Security vulnerability scanning
+
 The main dependency is `spacy-layout`, which automatically installs:
 
 - spaCy
@@ -158,28 +165,68 @@ The POC has been tested with:
 
 ### Running Tests
 
-Run tests with coverage reporting:
+Run tests with coverage and test analytics reporting:
 
 ```bash
-# Run tests with coverage
-pytest --cov --cov-branch --cov-report=xml
+# Run tests with coverage and JUnit XML output
+pytest --cov --cov-branch --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
 # Run tests (using configuration from pyproject.toml)
 pytest
 
 # Generate HTML coverage report
 pytest --cov-report=html
+
+# Run specific test file
+pytest tests/test_pdf_processor.py
 ```
 
-### Code Coverage
+### Code Coverage & Test Analytics
 
-This project uses [Codecov](https://codecov.io) for code coverage reporting. Coverage reports are automatically generated and uploaded to Codecov during CI/CD.
+This project uses [Codecov](https://codecov.io) for comprehensive code quality monitoring:
+
+#### Code Coverage
 
 - **Coverage Requirement**: 80% minimum
 - **Branch Coverage**: Enabled
 - **Reports**: HTML, XML, and terminal output
+- **CI Integration**: Automatic upload on every build
+
+#### Test Analytics
+
+- **Test Performance**: Track test run times and identify slow tests
+- **Failure Analysis**: Monitor failure rates and flaky test detection
+- **CI Insights**: Failed tests visible in PR comments and dashboard
+- **JUnit XML**: Standard test results format for CI/CD integration
 
 [![codecov](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout/branch/main/graph/badge.svg)](https://codecov.io/gh/stc93025mn/ocrpoc-spacy-layout)
+
+## CI/CD & Quality Assurance
+
+This project implements comprehensive continuous integration and quality assurance:
+
+### Automated Testing Pipeline
+
+- **Multi-Python Support**: Tests run on Python 3.10, 3.11, 3.12, and 3.13
+- **Code Quality Checks**:
+  - **Black**: Code formatting validation
+  - **Flake8**: Linting and style enforcement
+  - **Bandit**: Security vulnerability scanning
+- **Test Analytics**: Performance monitoring and failure analysis via Codecov
+
+### Codecov Integration
+
+- **Coverage Reports**: Automatic upload of coverage and test analytics data
+- **PR Comments**: Failed tests and coverage changes visible in pull requests
+- **Dashboard**: Comprehensive test health and performance insights
+- **Branch Protection**: 80% coverage requirement enforced
+
+### Quality Gates
+
+- **Coverage Threshold**: Minimum 80% code coverage required
+- **Branch Coverage**: Enabled for comprehensive coverage analysis
+- **Test Results**: JUnit XML output for CI/CD integration
+- **Security Scanning**: Automated vulnerability detection
 
 ## Architecture
 

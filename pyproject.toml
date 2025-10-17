@@ -148,6 +148,9 @@ addopts = [
     "--cov-report=term-missing",
     "--cov-report=html:htmlcov",
     "--cov-report=xml",
+    "--junitxml=junit.xml",
+    "-o",
+    "junit_family=legacy",
     "--cov-fail-under=80"
 ]
 
