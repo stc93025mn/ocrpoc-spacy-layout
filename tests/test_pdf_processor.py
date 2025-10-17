@@ -15,14 +15,14 @@ class TestPDFProcessor:
         # Mock the doc object and its attributes
         mock_doc = Mock()
         mock_doc.text = "Sample text"
-        
+
         # Mock layout pages
         mock_page = Mock()
         mock_page.page_no = 1
         mock_page.width = 100
         mock_page.height = 200
         mock_doc._.layout.pages = [mock_page]
-        
+
         # Mock spans
         mock_span = Mock()
         mock_span.label_ = "text"
@@ -39,7 +39,7 @@ class TestPDFProcessor:
         mock_span._.layout.page_no = 1
         mock_span._.heading = None
         mock_doc.spans = {"layout": [mock_span]}
-        
+
         # Mock tables
         mock_table = Mock()
         mock_table.start = 10
@@ -53,10 +53,12 @@ class TestPDFProcessor:
         mock_table._.data = Mock()
         mock_table._.data.to_dict = Mock(return_value=[{"col": "value"}])
         mock_doc._.tables = [mock_table]
-        
+
         mock_doc._.markdown = "# Sample markdown"
 
-        with patch.object(processor, 'layout_processor', return_value=mock_doc) as mock_layout:
+        with patch.object(
+            processor, "layout_processor", return_value=mock_doc
+        ) as mock_layout:
             result = processor.process_pdf("dummy.pdf")
 
             # Check basic structure
