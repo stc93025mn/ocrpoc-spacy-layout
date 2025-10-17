@@ -308,7 +308,9 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## License
 
-This project uses the MIT License (same as spacy-layout).
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for details.
+
+Note: This project depends on third-party libraries like spacy-layout (MIT License). When using or redistributing, please comply with their respective licenses. For spacy-layout's terms, refer to its [repository](https://github.com/explosion/spacy-layout) or installed package.
 
 ## Acknowledgments
 
