@@ -112,3 +112,103 @@ class TestPDFProcessor:
 
         # Clean up
         os.remove(output_file)
+
+    def test_main_function(self, processor):
+        """Test the main function orchestration."""
+        # Mock the processor methods
+        with patch.object(processor, 'download_pdf') as mock_download, \
+             patch.object(processor, 'process_pdf') as mock_process, \
+             patch.object(processor, 'save_results') as mock_save, \
+             patch('src.pdf_processor.PDFProcessor') as mock_processor_class, \
+             patch('builtins.print') as mock_print, \
+             patch('os.makedirs') as mock_makedirs:
+
+            # Setup mocks
+            mock_processor_class.return_value = processor
+            mock_download.side_effect = [
+                "data/pdfs/f1040.pdf",
+                "data/pdfs/table_example.pdf", 
+                "data/pdfs/sample_text.pdf"
+            ]
+            mock_process.side_effect = [
+                {"filename": "f1040.pdf", "result": "data1"},
+                {"filename": "table_example.pdf", "result": "data2"},
+                {"filename": "sample_text.pdf", "result": "data3"}
+            ]
+
+            # Import and call main
+            from src.pdf_processor import main
+            main()
+
+            # Verify PDFProcessor was created
+            mock_processor_class.assert_called_once()
+
+            # Verify downloads were called for each PDF
+            assert mock_download.call_count == 3
+            mock_download.assert_any_call("https://www.irs.gov/pub/irs-pdf/f1040.pdf", "f1040.pdf")
+            mock_download.assert_any_call("https://www.w3.org/WAI/WCAG21/working-examples/pdf-table/table.pdf", "table_example.pdf")
+            mock_download.assert_any_call("https://www.africau.edu/images/default/sample.pdf", "sample_text.pdf")
+
+            # Verify processing was called for each downloaded PDF
+            assert mock_process.call_count == 3
+            mock_process.assert_any_call("data/pdfs/f1040.pdf")
+            mock_process.assert_any_call("data/pdfs/table_example.pdf")
+            mock_process.assert_any_call("data/pdfs/sample_text.pdf")
+
+            # Verify results were saved
+            mock_save.assert_called_once()
+            args, kwargs = mock_save.call_args
+            results = args[0]
+            output_file = args[1]
+            assert len(results) == 3
+            assert output_file == "data/processed_results.json"
+            assert results[0]["filename"] == "f1040.pdf"
+            assert results[1]["filename"] == "table_example.pdf"
+            assert results[2]["filename"] == "sample_text.pdf"
+
+            # Verify directory creation
+            mock_makedirs.assert_called_once_with("data", exist_ok=True)
+
+            # Verify print statements
+            assert mock_print.call_count >= 4  # At least download, process, success messages, and save message
+
+    def test_main_function_with_exception(self, processor):
+        """Test main function handles exceptions gracefully."""
+        with patch.object(processor, 'download_pdf') as mock_download, \
+             patch.object(processor, 'process_pdf') as mock_process, \
+             patch.object(processor, 'save_results') as mock_save, \
+             patch('src.pdf_processor.PDFProcessor') as mock_processor_class, \
+             patch('builtins.print') as mock_print:
+
+            # Setup mocks
+            mock_processor_class.return_value = processor
+            mock_download.return_value = "data/pdfs/test.pdf"
+            mock_process.side_effect = Exception("Processing failed")
+
+            # Import and call main
+            from src.pdf_processor import main
+            main()
+
+            # Verify error was handled and printed
+            mock_print.assert_any_call("Error processing test.pdf: Processing failed")
+
+    def test_main_function_creates_data_directory(self, processor):
+        """Test that main creates the data directory if it doesn't exist."""
+        with patch.object(processor, 'download_pdf') as mock_download, \
+             patch.object(processor, 'process_pdf') as mock_process, \
+             patch.object(processor, 'save_results') as mock_save, \
+             patch('src.pdf_processor.PDFProcessor') as mock_processor_class, \
+             patch('builtins.print'), \
+             patch('os.makedirs') as mock_makedirs:
+
+            # Setup mocks
+            mock_processor_class.return_value = processor
+            mock_download.return_value = "data/pdfs/test.pdf"
+            mock_process.return_value = {"filename": "test.pdf"}
+
+            # Import and call main
+            from src.pdf_processor import main
+            main()
+
+            # Verify data directory creation
+            mock_makedirs.assert_called_once_with("data", exist_ok=True)
