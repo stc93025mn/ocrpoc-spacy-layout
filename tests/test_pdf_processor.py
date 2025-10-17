@@ -59,7 +59,7 @@ class TestPDFProcessor:
 
         assert os.path.exists(output_file)
 
-        with open(output_file, 'r') as f:
+        with open(output_file, "r") as f:
             loaded = json.load(f)
 
         assert loaded == test_results
