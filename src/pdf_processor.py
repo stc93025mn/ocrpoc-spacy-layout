@@ -18,7 +18,7 @@ class PDFProcessor:
         os.makedirs(pdf_dir, exist_ok=True)
         filepath = os.path.join(pdf_dir, filename)
 
-        response = requests.get(url)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
 
         with open(filepath, "wb") as f:
