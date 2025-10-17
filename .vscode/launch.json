@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "./.venv/bin/python"
+        },
+        {
+            "name": "Python: PDF Processor",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/pdf_processor.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "./.venv/bin/python"
+        },
+        {
+            "name": "Python: Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "tests/",
+                "-v"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "./.venv/bin/python"
+        }
+    ]
+}

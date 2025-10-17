@@ -1,0 +1,21 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.pylint",
+        "ms-python.isort",
+        "ms-python.vscode-pylance",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-markdownlint",
+        "hbenl.vscode-test-explorer",
+        "ms-vscode.test-adapter-converter",
+        "ryanluker.vscode-coverage-gutters",
+        "ms-vscode.vscode-jupyter",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers"
+    ]
+}
