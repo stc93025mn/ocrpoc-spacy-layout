@@ -6,6 +6,20 @@ import json
 from typing import List, Dict, Any
 
 
+# Sample PDFs to download and process
+PDF_URLS = [
+    ("https://www.irs.gov/pub/irs-pdf/f1040.pdf", "f1040.pdf"),
+    (
+        "https://www.w3.org/WAI/WCAG21/working-examples/pdf-table/table.pdf",
+        "table_example.pdf",
+    ),
+    (
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "sample_text.pdf",
+    ),
+]
+
+
 class PDFProcessor:
     def __init__(self):
         # Initialize spaCy with blank English model
@@ -104,19 +118,9 @@ class PDFProcessor:
 def main():
     processor = PDFProcessor()
 
-    # Sample PDFs to download and process
-    pdf_urls = [
-        ("https://www.irs.gov/pub/irs-pdf/f1040.pdf", "f1040.pdf"),
-        (
-            "https://www.w3.org/WAI/WCAG21/working-examples/pdf-table/table.pdf",
-            "table_example.pdf",
-        ),
-        ("https://www.africau.edu/images/default/sample.pdf", "sample_text.pdf"),
-    ]
-
     results = []
 
-    for url, filename in pdf_urls:
+    for url, filename in PDF_URLS:
         try:
             print(f"Downloading {filename}...")
             pdf_path = processor.download_pdf(url, filename)

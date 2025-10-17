@@ -156,7 +156,8 @@ class TestPDFProcessor:
                 "table_example.pdf",
             )
             mock_download.assert_any_call(
-                "https://www.africau.edu/images/default/sample.pdf", "sample_text.pdf"
+                "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+                "sample_text.pdf",
             )
 
             # Verify processing was called for each downloaded PDF
@@ -186,12 +187,14 @@ class TestPDFProcessor:
 
     def test_main_function_with_exception(self, processor):
         """Test main function handles exceptions gracefully."""
+        test_pdf_urls = [("http://example.com/test.pdf", "test.pdf")]
+
         with (
             patch.object(processor, "download_pdf") as mock_download,
             patch.object(processor, "process_pdf") as mock_process,
-            patch.object(processor, "save_results") as mock_save,
             patch("src.pdf_processor.PDFProcessor") as mock_processor_class,
             patch("builtins.print") as mock_print,
+            patch("src.pdf_processor.PDF_URLS", test_pdf_urls),
         ):
 
             # Setup mocks
@@ -209,13 +212,15 @@ class TestPDFProcessor:
 
     def test_main_function_creates_data_directory(self, processor):
         """Test that main creates the data directory if it doesn't exist."""
+        test_pdf_urls = [("http://example.com/test.pdf", "test.pdf")]
+
         with (
             patch.object(processor, "download_pdf") as mock_download,
             patch.object(processor, "process_pdf") as mock_process,
-            patch.object(processor, "save_results") as mock_save,
             patch("src.pdf_processor.PDFProcessor") as mock_processor_class,
             patch("builtins.print"),
             patch("os.makedirs") as mock_makedirs,
+            patch("src.pdf_processor.PDF_URLS", test_pdf_urls),
         ):
 
             # Setup mocks
