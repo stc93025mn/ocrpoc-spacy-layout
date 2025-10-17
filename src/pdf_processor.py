@@ -13,7 +13,10 @@ PDF_URLS = [
         "https://www.w3.org/WAI/WCAG21/working-examples/pdf-table/table.pdf",
         "table_example.pdf",
     ),
-    ("https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf", "sample_text.pdf"),
+    (
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "sample_text.pdf",
+    ),
 ]
 
 
