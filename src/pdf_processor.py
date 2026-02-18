@@ -5,7 +5,6 @@ from spacy_layout import spaCyLayout
 import json
 from typing import List, Dict, Any
 
-
 # Sample PDFs to download and process
 PDF_URLS = [
     ("https://www.irs.gov/pub/irs-pdf/f1040.pdf", "f1040.pdf"),
