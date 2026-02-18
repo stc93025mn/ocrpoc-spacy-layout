@@ -29,4 +29,3 @@ tests/ @stc93025mn
 pyproject.toml @stc93025mn
 requirements.txt @stc93025mn
 .pre-commit-config.yaml @stc93025mn
-.codecov.yml @stc93025mn

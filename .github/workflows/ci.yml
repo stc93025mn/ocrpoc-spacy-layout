@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
 
 jobs:
   test:
@@ -48,17 +52,6 @@ jobs:
           bandit -r src/ -f json -o bandit-report.json || true
           bandit -r src/
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: |
-          pytest --cov --cov-branch --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          pytest --cov --cov-branch --cov-fail-under=80 --cov-report=term-missing --junitxml=junit.xml -o junit_family=legacy
